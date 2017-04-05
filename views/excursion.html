@@ -1,0 +1,61 @@
+<div>
+    <img class="hero-img" ng-src="http://my.twenty-one.co/uploads/services/{{excursion.images[0].fileName}}" alt="">
+</div>
+
+<h3>{{excursion.title}}</h3>
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <img class="small-img img-rounded" ng-repeat="image in excursion.images" src="http://my.twenty-one.co/uploads/services/{{image.fileName}}" alt="">
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-8">
+        <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a data-target="#description" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+            <li role="presentation"><a data-target="#includes" aria-controls="profile" role="tab" data-toggle="tab">Includes</a></li>
+            <li role="presentation"><a data-target="#schedule" aria-controls="profile" role="tab" data-toggle="tab">Schedule</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content line-right">
+            <!--panel 1-->
+            <div role="tabpanel" class="tab-pane active" id="description">
+                <p class="paragraph">{{excursion.description}}</p>
+            </div>
+            <!--panel 2-->
+            <div role="tabpanel" class="tab-pane" id="includes">
+                <h4>Includes</h4>
+                <p class="paragraph">{{excursion.includes}}</p>
+                <h4>Does not include</h4>
+                <p class="paragraph">{{excursion.notIncludes}}</p>
+            </div>
+            <!--panel 3-->
+            <div role="tabpanel" class="tab-pane" id="schedule">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default" ng-repeat="schedule in excursion.schedule">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" aria-expanded="true" aria-controls="collapseOne">
+                        {{schedule.title}}
+                        </a>
+                    </h4>
+                    </div>
+                    <div id="collapse{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">{{schedule.description}}</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div> <!-- tab-content -->
+        </div><!-- Panels-->
+    </div><!-- col-md-8-->
+</div><!-- row-->
+
+
+

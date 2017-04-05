@@ -1,0 +1,38 @@
+<div>
+    <img class="hero-img" ng-src="http://my.twenty-one.co/uploads/destinations/{{destination.images[0].fileName}}" alt="">
+</div>
+
+<h3>{{destination.title}}</h3>
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10">
+        <img class="small-img img-rounded" ng-repeat="image in destination.images" src="http://my.twenty-one.co/uploads/destinations/{{image.fileName}}" alt="">
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-8">
+        <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a data-target="#description" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+            <li role="presentation"><a data-target="#thingsToDo" aria-controls="profile" role="tab" data-toggle="tab">Things To Do</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content line-right">
+            <!--panel 1-->
+            <div role="tabpanel" class="tab-pane active" id="description">
+                <p class="paragraph">{{destination.description}}</p>
+            </div>
+            <!--panel 2-->
+            <div role="tabpanel" class="tab-pane" id="thingsToDo">
+                <p class="paragraph">{{destination.thingsToDo}}</p>
+            </div>
+        </div>
+
+        </div><!-- Panels-->
+    </div><!-- col-md-8-->
+</div><!-- row-->
